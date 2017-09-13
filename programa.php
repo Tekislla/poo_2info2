@@ -11,14 +11,16 @@ require 'classes/Conta.php';
 
 $minhaConta = new Conta();
 $minhaConta->dono  = "Jefferson";
-$minhaConta->saldo = 800;
+$minhaConta->deposita(1000);
 $conseguiSacar = $minhaConta->saca(400);
-echo ($conseguiSacar)? 'consegui sacar' : 'nao consegui sacar';
 
-var_dump($minhaConta);
+//echo ($conseguiSacar)? 'consegui sacar' : 'nao consegui sacar';
 
 $meuSonho = new Conta();
 $meuSonho->dono = "Jefferson";
-$meuSonho->saldo = 1000000;
+$meuSonho->deposita(1000000);
 
-var_dump($meuSonho);
+
+$meuSonho->transferePara($minhaConta, 500000);
+
+print "O cliente {$minhaConta->dono} tem saldo de {$minhaConta->getSaldo()}";

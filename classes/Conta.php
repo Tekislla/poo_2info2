@@ -11,12 +11,14 @@ class Conta
     public $numero;
     public $dono;
     public $cpf;
-    public $saldo;
+    private $saldo = 0;
 
-    /**
-     * @param float $valor
-     * @return bool
-     */
+
+    public function getSaldo(): float
+    {
+        return $this->saldo;
+    }
+
     public function saca(float $valor) :bool {
         if ($valor < $this->saldo){
             $this->saldo = $this->saldo - $valor;
@@ -26,12 +28,19 @@ class Conta
         }
     }
 
-    public function deposita(){
-        //TODO escrever a funcao
+    public function deposita(float $valor){
+
+        if ($valor > 0){
+            $this->saldo += $valor;
+        }
     }
 
-    public function trasfere(){
-        //TODO escrever a funcao transfere
-    }
+    public function transferePara(Conta $contaDestino, float $valor){
 
+        $deuCerto = $this->saca($valor);
+
+        if ($deuCerto){
+            $contaDestino->deposita($valor);
+        }
+    }
 }
