@@ -8,19 +8,16 @@
 
 
 require 'classes/Conta.php';
+require 'classes/Cliente.php';
 
 $minhaConta = new Conta();
-$minhaConta->dono  = "Jefferson";
-$minhaConta->deposita(1000);
-$conseguiSacar = $minhaConta->saca(400);
 
-//echo ($conseguiSacar)? 'consegui sacar' : 'nao consegui sacar';
+$clienteJunior = new Cliente();
+$clienteJunior->setNome("João");
+$clienteJunior->cpf = "987654321";
+$clienteJunior->endereco = "Av. Getulio Vargas - Araquari";
 
-$meuSonho = new Conta();
-$meuSonho->dono = "Jefferson";
-$meuSonho->deposita(1000000);
+$minhaConta->setDono($clienteJunior);
 
 
-$meuSonho->transferePara($minhaConta, 500000);
-
-print "O cliente {$minhaConta->dono} tem saldo de {$minhaConta->getSaldo()}";
+print_r($minhaConta);
