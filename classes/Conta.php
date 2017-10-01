@@ -9,20 +9,9 @@
 class Conta
 {
     public $numero;
-    private $dono;
+    public $dono;
+    public $cpf;
     private $saldo = 0;
-
-
-    public function setDono(Cliente $dono)
-    {
-        $this->dono = $dono;
-    }
-
-    public function getDono()
-    {
-        return $this->dono;
-    }
-
 
 
     public function getSaldo(): float
@@ -39,7 +28,7 @@ class Conta
         }
     }
 
-    public function deposita(float $valor) :void{
+    public function deposita(float $valor){
 
         if ($valor > 0){
             $this->saldo += $valor;

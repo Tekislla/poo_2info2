@@ -10,14 +10,12 @@ class Funcionario
 {
     public $departamento;
     public $salario;
-    public $dataEntrada;
+    private $dataEntrada;
     public $CPF;
     const  SALARIO_DECIMO_TERCEIRO_E_FERIAS = 13.3;
 
     public function recebeAumento(float $aumentoPercentual){
-
         $this->salario += $this->salario * $aumentoPercentual;
-
     }
 
     public function calculaGanhoAnual(): float {
@@ -27,9 +25,20 @@ class Funcionario
 
     }
 
+    public function setDataEntrada(Data $dataEntrada) {
+        $this->dataEntrada = $dataEntrada;
+    }
+
     public function mostra(){
-        echo "O funcionario {$this->CPF} trabalha no departameto {$this->departamento} com salario de {$this->salario} \n";
+        echo "O funcionario {$this->CPF} trabalha no departameto {$this->departamento} 
+        com salario de {$this->salario} \n";
+
         echo "Seu ganho anual é de ".$this->calculaGanhoAnual();
+
+        echo "Sua data de entrada foi 
+        {$this->dataEntrada->formatada()}";
+
+        echo "\n";
     }
 
 }
