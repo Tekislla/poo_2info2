@@ -1,7 +1,7 @@
 <?php
 
-    require_once "Funcionario.php";
-    require_once "Data.php";
+    require_once "classes/Funcionario.php";
+    require_once "classes/Data.php";
 
 
     $dataEntrada = new Data();
@@ -10,11 +10,11 @@
     $dataEntrada->ano = 2001;
 
 
-    $seguranca = new Funcionario();
+    $seguranca = new Funcionario("Kleber");
 
-    $seguranca->departamento = "Segurança Cofre";
-    $seguranca->salario = 3000;
-    $seguranca->CPF = "09889876";
+    $seguranca->setDepartamento("Segurança Cofre");
+    $seguranca->setSalario(3000);
+    $seguranca->setCPF("0980989898");
     $seguranca->setDataEntrada($dataEntrada);
 
 

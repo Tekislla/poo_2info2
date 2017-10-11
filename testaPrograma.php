@@ -10,14 +10,13 @@
 require 'classes/Conta.php';
 require 'classes/Cliente.php';
 
+
 $minhaConta = new Conta();
+$minhaConta->deposita(500);
 
-$clienteJunior = new Cliente();
-$clienteJunior->setNome("João");
-$clienteJunior->cpf = "987654321";
-$clienteJunior->endereco = "Av. Getulio Vargas - Araquari";
+$contaPoupanca = new Conta();
+$contaPoupanca->deposita(15);
 
-$minhaConta->setDono($clienteJunior);
+new Conta();
 
-
-print_r($minhaConta);
+echo "Total de contas do banco: ".Conta::$totalContas;

@@ -8,11 +8,18 @@
  */
 class Funcionario
 {
-    public $departamento;
-    public $salario;
+    private $nome;
+    protected $departamento;
+    protected $salario;
     private $dataEntrada;
-    public $CPF;
+    private $CPF;
     const  SALARIO_DECIMO_TERCEIRO_E_FERIAS = 13.3;
+
+    function __construct(string $nomeInformado) {
+
+        $this->nome = $nomeInformado;
+
+    }
 
     public function recebeAumento(float $aumentoPercentual){
         $this->salario += $this->salario * $aumentoPercentual;
@@ -40,6 +47,56 @@ class Funcionario
 
         echo "\n";
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDepartamento()
+    {
+        return $this->departamento;
+    }
+
+    /**
+     * @param mixed $departamento
+     */
+    public function setDepartamento($departamento)
+    {
+        $this->departamento = $departamento;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSalario()
+    {
+        return $this->salario;
+    }
+
+    /**
+     * @param mixed $salario
+     */
+    public function setSalario($salario)
+    {
+        $this->salario = $salario;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCPF()
+    {
+        return $this->CPF;
+    }
+
+    /**
+     * @param mixed $CPF
+     */
+    public function setCPF($CPF)
+    {
+        $this->CPF = $CPF;
+    }
+
+
 
 }
 

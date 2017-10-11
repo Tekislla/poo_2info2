@@ -12,7 +12,11 @@ class Conta
     public $dono;
     public $cpf;
     private $saldo = 0;
+    public static $totalContas = 0;
 
+    function __construct() {
+       self::$totalContas++;
+    }
 
     public function getSaldo(): float
     {
@@ -44,3 +48,4 @@ class Conta
         }
     }
 }
+
